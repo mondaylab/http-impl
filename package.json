@@ -1,0 +1,11 @@
+{
+  "name": "http-impl",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Jacqueline712/http-impl.git",
+  "author": "Jacqueline712 <mondaystudio712@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mime": "^3.0.0"
+  }
+}
