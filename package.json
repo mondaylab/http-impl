@@ -7,5 +7,8 @@
   "license": "MIT",
   "devDependencies": {
     "mime": "^3.0.0"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.7"
   }
 }
