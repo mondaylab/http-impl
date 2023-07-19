@@ -6,7 +6,9 @@
   "author": "Jacqueline712 <mondaystudio712@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "mime": "^3.0.0"
+    "mime": "^3.0.0",
+    "sqlite": "^5.0.1",
+    "sqlite3": "^5.1.6"
   },
   "dependencies": {
     "handlebars": "^4.7.7"
