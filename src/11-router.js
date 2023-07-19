@@ -1,5 +1,5 @@
-const Router = require('./lib/router');
-const Server = require('./lib/server');
+const Router = require('../lib/server');
+const Server = require('../lib/server');
 
 const app = new Server();
 const router = new Router();
