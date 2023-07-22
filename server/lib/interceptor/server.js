@@ -1,5 +1,5 @@
 const http = require('http');
-const Interceptor = require('../09-interceptor');
+const Interceptor = require('./interceptor');
 
 module.exports = class {
   constructor() {

@@ -1,6 +1,6 @@
 class Interceptor {
   constructor() {
-    this.aspect = [];
+    this.aspects = [];
   }
   /**
    use(async (context, next) => {
@@ -11,7 +11,7 @@ class Interceptor {
    */
 
   use(/* async */ functor) {
-    this.aspect.push(functor);
+    this.aspects.push(functor); // 嗯……记得大写……找了半天bug才发现是这里的问题
     return this;
   }
 

@@ -4,6 +4,13 @@ async function getList(database, userInfo) {
   );
 }
 
+/**
+ * 增加一个addTask方法，将text、state信息插入到todo表中
+ * @param {*} database
+ * @param {*} userInfo
+ * @param {*} param2
+ * @returns
+ */
 async function addTask(database, userInfo, { text, state }) {
   try {
     const data = await database.run(

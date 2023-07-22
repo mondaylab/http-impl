@@ -1,0 +1,221 @@
+* {
+  margin:0;
+  padding:0;
+  list-style:none; 
+  box-sizing:border-box;
+}
+
+body {
+  background: #edf0f1;
+  padding-top: 80px;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  max-width: 800px;
+  position: fixed;
+  padding: 15px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  background: #25b99a;
+  box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+header input {
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  text-indent: 18px;
+  padding: 0 60px 0 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px 25px 25px 5px;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+header input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header button {
+  width: 16px;
+  height: 16px;
+  padding: 17px;
+  box-sizing: content-box;
+  position:absolute;
+  top:15px;
+  right:15px;
+  z-index:2;
+  border-radius: 25px;
+  background: #fff;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+}
+
+form,
+ul.todolist {
+  width: 100%;
+  max-width: 800px;
+  padding: 15px;
+  margin: auto;
+  position: relative;
+}
+
+ul.todolist li {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  line-height: 22px;
+  background: #fff;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+  margin: 0 0 10px 0;
+  padding: 14px 100px 14px 14px;
+  word-break: break-word;
+}
+
+ul.todolist li:last-of-type {
+  margin: 0;
+}
+
+ul.todolist button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+}
+
+ul.todolist button.remove {
+  right: 50px;
+}
+
+ul.todolist button:last-of-type:before {
+  content: '';
+  width: 1px;
+  height: 30px;
+  background: #edf0f1;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+ul.todolist button svg {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -11px 0 0 -11px;
+}
+
+ul.todolist button.complete svg {
+  border-radius: 11px;
+  border: 1.5px solid #25b99a;
+
+  transition: background 0.2s ease;
+}
+
+ul.todolist button svg path {
+  transition: fill 0.2s ease;
+}
+
+ul.todolist button.remove svg path {
+  fill: #c0cecb;
+}
+
+ul.todolist button.remove:hover svg path {
+  fill: #e85656;
+}
+
+ul.todolist button.complete svg path {
+  fill: #25b99a;
+}
+
+ul.todolist button.complete:hover svg {
+  background: rgba(37, 185, 154, 0.75);
+}
+
+ul.todolist button.complete:hover svg path,
+ul.todolist li.completed button.complete svg path {
+  fill: #fff;
+}
+
+ul.todolist li.completed button.complete svg {
+  background: #25b99a;
+  border: 0px;
+}
+
+ul.todolist:empty::before,
+ul.todolist:empty::after,
+ul.todolist li.todo:last-of-type::after,
+ul.todolist li.completed:first-of-type::before,
+ul.todolist li.todo + li.completed::before {
+  padding: 15px 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+  white-space: nowrap;
+}
+
+ul.todolist:empty::before {
+  width: 150px;
+  content: 'You have nothing to-do!';
+}
+
+ul.todolist:empty::after {
+  top: 70px;
+  border-top: solid 1px #d8e5e0;
+  content: 'You have yet to complete any tasks.';
+}
+
+ul.todolist li.todo:last-of-type {
+  margin-bottom: 80px;
+}
+
+ul.todolist li.todo:last-of-type::after {  
+  bottom: -80px;
+  border-top: solid 1px #d8e5e0;
+  content: 'You have yet to complete any tasks.';
+}
+
+ul.todolist li.completed:first-of-type {
+  margin-top: 80px;
+}
+
+ul.todolist li.completed:first-of-type::before {
+  bottom: 80px;
+  border-bottom: solid 1px #d8e5e0;
+  content: 'You have nothing to-do!';
+}
+
+ul.todolist li.todo + li.completed {
+  position: relative;
+  margin-top: 60px;
+}
+
+ul.todolist li.todo + li.completed::before {
+  width: 150px;
+  content: '';
+  top: -30px;
+  border-top: solid 1px #d8e5e0;
+}
