@@ -43,6 +43,14 @@ async function checkLogin(ctx) {
   return ctx.userInfo;
 }
 
+/**
+ * 实现一个用户登录的拦截切面，以响应用户的登录请求。
+ * 这个切面实现的内容是：
+ * 每次用户请求服务器的时候，服务器都为该用户更新他的Cookie。
+ *
+ * 值得注意的是，更新 Cookie 的切面必须放在所有切面的前面，无论用户是否进行登录操作，
+ * 服务器都会为该用户更新他的Cookie。
+ */
 app.use(async ({ cookies, res }, next) => {
   let id = cookies.interceptor_js;
   if (!id) {
@@ -62,6 +70,15 @@ app.use(async ({ cookies, res }, next) => {
   await next();
 });
 
+/**
+ * /list 拦截切面都做了啥：
+ * 先去检查用户的session是否有效（即checkLogin函数）。
+ * getSession方法根据浏览器返回来的Cookie，从Session表中查询用户的Session，
+ * 如果用户的session存在并有效，则返回用户的信息对象，否则返回null。
+ * 然后，根据 checkLogin 方法返回的结果，进行下一步的处理：
+ * 如果 checkLogin 方法返回的是一个用户信息对象，说明该用户的 Session 还是有效的，那么服务器就会根据用户信息，获得和这个用户相关的任务列表，并返回给客户端；
+ * 如果返回 null，表示这个用户的 Session 不存在或已经过期，那么服务器返回错误对象，将用户导向登录页面。
+ */
 app.use(
   router.get('/list', async (ctx, next) => {
     const { database, res } = ctx;
@@ -105,17 +122,25 @@ app.use(
   })
 );
 
+/**
+ * 当在login.html点击提交后， 服务器会将请求转发到下面这个拦截切面中处理。
+ * 如果用户登录失败，返回302跳转并回到登录页面；
+ * 如果登录成功，则进入 index.html 页面。
+ */
 app.use(
   router.post('/login', async (ctx, next) => {
     const { database, params, res } = ctx;
     const { login } = require('./model/user');
     const result = await login(database, ctx, params);
+    // 下面我们使用 HTTP 状态码 302，这个状态码表示临时跳转。
+    // 然后设置 Location 为跳转目的地，之后浏览器就会执行跳转了。
     res.statusCode = 302;
     if (!result) {
       // 登录失败，跳转到login继续登录
-      res.setHeader('Location', '.login.html');
-    } else {
       res.setHeader('Location', '/login.html');
+    } else {
+      // 成功，跳转到 index
+      res.setHeader('Location', '/');
     }
     await next();
   })

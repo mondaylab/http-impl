@@ -4,14 +4,14 @@
  * 包括URL参数和POST请求数据
  */
 const url = require('url');
-const querysrting = require('querystring');
+const querystring = require('querystring');
 
 module.exports = async function (ctx, next) {
   const { req } = ctx;
   // 解析query数据
   const { query } = url.parse(`http://${req.headers.host}${req.url}`);
   // 使用内置模块 querystring 解析URL参数
-  ctx.params = querysrting.parse(query);
+  ctx.params = querystring.parse(query);
   // 解析POST
   if (req.method === 'POST') {
     const headers = req.headers;

@@ -124,6 +124,8 @@ async function saveItem(text) {
 /**
  * 通过浏览器的fetch方法请求 GET /list，以获取todo表的数据，
  * 并通过addItem方法将数据渲染到页面上。
+ * 在下面这段 JS 脚本中，await fetch('/list')会向我们的服务器发起获取用户任务列表的请求。
+ * 如果成功，则更新 UI，将数据填充到 Todolist 中；如果失败，则返回登录页面。
  * @param {*} list
  */
 async function loadItems(list) {
