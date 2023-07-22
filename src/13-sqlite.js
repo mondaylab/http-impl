@@ -55,6 +55,16 @@ app.use(
   })
 );
 
+app.use(
+  router.post('/add', async ({ database, params, res }, next) => {
+    res.setHeader('Content-Type', 'application/json');
+    const { addTask } = require('../server/model/todolist');
+    const result = await addTask(database, params);
+    res.body = result;
+    await next();
+  })
+);
+
 /**
  * 如果路径不是/list，则返回'<h1>Not Found</h1>'文本
  */

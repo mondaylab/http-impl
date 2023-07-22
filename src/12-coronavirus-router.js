@@ -2,9 +2,8 @@
  * @description 使用router来请求mock的数据
  */
 
-const Router = require('../lib/router');
-const Server = require('../lib/server');
-const param = require('../aspect/param');
+const { Router, Server } = require('../server/lib/interceptor');
+const param = require('../server/aspect/param');
 const fs = require('fs');
 
 const app = new Server();

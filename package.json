@@ -2,6 +2,10 @@
   "name": "http-impl",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "node ./server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": "https://github.com/Jacqueline712/http-impl.git",
   "author": "Jacqueline712 <mondaystudio712@gmail.com>",
   "license": "MIT",
@@ -11,6 +15,7 @@
     "sqlite3": "^5.1.6"
   },
   "dependencies": {
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "http-server": "^14.1.1"
   }
 }
