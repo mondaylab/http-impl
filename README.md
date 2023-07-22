@@ -1,19 +1,24 @@
 # http-impl
+
+# 基础信息
+
 ## 材料backup
 
- node小册: 理解http
+juejin小册：[从前端到全栈](https://juejin.cn/book/7133100888566005763?utm_source=course_list)
 
-12-22
+本仓库沉淀内容：理解http部分 → 12-22节
 
 ## 相关数据
 [COVID 19 数据](https://github.com/maxMaxineChen/COVID-19-worldwide-json-data-script)
 
+
+
+# 仓库相关
+
 ## 代码结构
-- 12-18节
-- 19-
 
 
-文章目录结构
+文章目录结构如下所示：
 
 ```bash
 |——
@@ -21,7 +26,7 @@
 
 
 
-# 数据解析类型
+## 数据解析类型
 
 从页面提交数据到拦截器，可以通过POST请求来提交。`POST` 请求与 `GET` 请求不同，有多种数据提交方式，由 `request` 的 `Content-Type` 字段决定，其中常用的有`application/x-www-form-urlencoded`、`application/json`、`multipart/form-data`等。
 
@@ -69,7 +74,7 @@ PNG ... content of chrome.png ...
 
 
 
-# 代码组织形式
+## 代码组织形式
 
 一般来说，实现一个服务器接口是在服务器端做两件事情，如下：
 
