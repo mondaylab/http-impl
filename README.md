@@ -9,11 +9,17 @@ juejin小册：[从前端到全栈](https://juejin.cn/book/7133100888566005763?u
 本仓库沉淀内容：理解http部分 → 12-22节
 
 ## 相关数据
-[COVID 19 数据](https://github.com/maxMaxineChen/COVID-19-worldwide-json-data-script)
+[COVID 19 指数数据](https://github.com/maxMaxineChen/COVID-19-worldwide-json-data-script)
 
 
 
 # 仓库相关
+
+## 启动方式
+
+- `yarn start`
+
+
 
 ## 代码结构
 
@@ -21,7 +27,51 @@ juejin小册：[从前端到全栈](https://juejin.cn/book/7133100888566005763?u
 文章目录结构如下所示：
 
 ```bash
-|——
+├── database
+	├── todolist.db 存放数据库的数据
+├── mock
+	├── data.json   COVID19的数据，主要给 src/12-coronavirus-router,js  使用
+├── server
+	├── aspect 拦截切面
+		├── cookie.js 解析cookie
+		├──  param.js 解析http请求中的数据
+	├── lib 
+		├── interceptor
+			├──  middleware
+				├── router.js 路由实现
+			├──  module
+				├── mock.js 实现读取数据的业务逻辑
+			├── index.js 入口文件
+			├── interceptor.js
+			├── server.js
+	├── model
+	├── index.js 
+├── src 课程相关笔记
+	├── 01-tcp-server.js
+	├── 02-http-simple.js
+	├── 03-http-consult.js
+	├── 04-http-static.js
+	├── 05-http-cache-control.js
+	├── 06-http-last-modified.js
+	├── 07-http-etag.js
+	├── 08-http-compression.js
+	├── 09-interceptor.js
+	├── 10-server.js
+	├── 11-router.js
+	├── 12-coronavirus-router.js
+	├── 13-sqlite.js
+	├── 14_process.js
+├── view
+	├── coronavirus_date.html
+	├── coronavirus_index.html
+	├── illustate.html
+├── www
+	├── assets 图片文件
+	├── static
+		├── css 加载到html里面的css
+		├── js 加载到html文件里的js文件
+	├── index.html 主页
+	├── login.html 登录页面
 ```
 
 
@@ -86,7 +136,7 @@ PNG ... content of chrome.png ...
 - 用`fetch`方法调用对应的`URL`发送请求；
 - 根据请求返回的结果更新`UI`界面。
 
-服务端的两件事情，分别属于两个不同的层次，一个是模型（model）层，一个是逻辑（logical）层，如果我们把逻辑层再细分，考虑服务端渲染又可以分为视图（view）层和控制（controller）层，这样我们的服务器就开始有了MVC模式的雏形，MVC时服务器常用的设计模型。
+服务端的两件事情，分别属于两个不同的层次，一个是**模型（model）层**，一个是**逻辑（logical）层**，如果我们把逻辑层再细分，考虑服务端渲染又可以分为**视图（view）层**和**控制（controller）层**，这样我们的服务器就开始有了`MVC`模式的雏形，`MVC`是服务器常用的设计模型。
 
 
 
