@@ -46,7 +46,7 @@ title=test&sub%5B%5D=1&sub%5B%5D=2&sub%5B%5D=3
 需要注意的是，如果是`applicaiton/json`格式，body 中的数据是字符串化的 JSON 数据，我们直接通过 JSON.parse 解析即可。
 
 ```bash
-POST http://www.example.com HTTP/1.1 
+POST http://www.example.com HTTP/1.1
 Content-Type: application/json;charset=utf-8
 
 {"title":"test","sub":[1,2,3]}
